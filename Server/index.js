@@ -22,11 +22,14 @@ app.use(express.json());
 app.use(Cors());
 
 // DB config
-mongoose.connect(connectionURL).then(() => {
-    app.listen(port, () => console.log(`Running on port: ${port}`))
-}).catch((err) => {
-    console.log(err);
-})
+mongoose
+    .connect(connectionURL)
+    .then(() => {
+        app.listen(port, () => console.log(`Running on port: ${port}`))
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 
 // API Endpoints
 

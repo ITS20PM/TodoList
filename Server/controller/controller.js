@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Todos = require('../dbTodos');
-const dbTodos = require('../dbTodos');
 
 // get todo list
 const getTodos = async (req, res) => {
@@ -15,7 +14,7 @@ const getTodos = async (req, res) => {
 // create a new todo list
 const createTodo = async (req, res) => {
     const dbTodo = req.body;
-
+    
     try {
         const newTodo = await Todos.create(dbTodo);
         res.status(201).send(newTodo);
