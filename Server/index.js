@@ -37,8 +37,8 @@ app.get('/todos', getTodos);
 app.post('/todos', createTodo);
 
 // Update a todo
-app.get('/todos/:id', updateTodo);
+app.put('/todos/:id', updateTodo);
 
 // Delete a todo
-app.post('/todos/:id', deleteTodo);
+app.delete('/todos/:id', deleteTodo);
 
