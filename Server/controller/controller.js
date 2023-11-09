@@ -60,6 +60,7 @@ const deleteTodo = async (req, res) => {
 
         const deleteTodo = await Todos.findOneAndUpdate({_id: id});
         
+        
         res.status(200).send(deleteTodo);
     }catch (error) {
         res.status(500).send(error.message);
