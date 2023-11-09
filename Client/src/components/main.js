@@ -3,6 +3,7 @@ import axios from '../axios';
 import Form from '../forms/main';
 import {Container} from './style';
 import List from '../list/main';
+import Key from '../key/main';
 
 function Todo() {
     const [input, setInput] = useState('');
@@ -50,6 +51,8 @@ function Todo() {
             <Form input={input} setInput={setInput} addTodo={addTodo}/>
 
             <List todos={todos} fetchData={fetchData}/>
+
+            <Key />
         </Container>
     );
 }

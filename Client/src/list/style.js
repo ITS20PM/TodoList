@@ -17,10 +17,10 @@ export const Text = styled.span`
     ::first-letter {
         text-transform: capitalize;
     }
-    color: ${(props) => (props.isCompleted) ? 'green': null};
-   
+    color: ${(props) => (props.isCompleted ? 'green': null)};
+    text-decoration: ${(props) => (props.isCompleted ? "line-through" : "none")};
 `;
 
 export const DeleteIcon = styled(Text)`
-
+    cursor: pointer;
 `;
