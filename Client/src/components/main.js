@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from '../axios';
 import Form from '../forms/main';
 import {Container} from './style';
+import List from '../list/main';
 
 function Todo() {
     const [input, setInput] = useState('');
@@ -16,6 +17,7 @@ function Todo() {
         }catch (err) {
             console.log(err.message);
         }
+
     };
 
     useEffect(() => {
@@ -24,9 +26,12 @@ function Todo() {
 
     const addTodo = async(e) => {
         e.preventDefault();
+        console.log("added todo");
+
         if (input.length === 0)
             return null;
 
+        
         await axios.post('/todos', [{
             ...todos,
             text: input,
@@ -36,18 +41,17 @@ function Todo() {
         fetchData();
         setInput('');
 
-        console.log('AddedTodos');
     }
-
-    //console.log(todos, "todos");
 
     return (
         <Container>
             <h2>List of Todos</h2>
             
             <Form input={input} setInput={setInput} addTodo={addTodo}/>
+
+            <List todos={todos} fetchData={fetchData}/>
         </Container>
-        );
+    );
 }
 
 export default Todo;

@@ -10,7 +10,7 @@ function Form({input, setInput, addTodo}) {
                 type="text" 
                 role="input"
             />
-            <Button type="submit" onClick={(e) => addTodo}>Add</Button>
+            <Button type="submit" onClick={(e) => addTodo(e)}>Add</Button>
         </FormContainer>
     )
 }
