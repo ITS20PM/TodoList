@@ -17,8 +17,10 @@ const createTodo = async (req, res) => {
     
     try {
         const newTodo = await Todos.create(dbTodo);
+        res.send("error");
         res.status(201).send(newTodo);
     }catch (error) {
+        
         res.status(500).send(error.message);
     }
 }
@@ -41,7 +43,7 @@ const updateTodo = async (req, res) => {
             return res.status(404).send(`There is a todo with id of ${id}`);
         }
 
-        res.status(201).send(updateTodo);
+        res.status(200).send(updateTodo);
     }catch (error) {
         res.status(500).send(error.message);
     }
@@ -68,6 +70,6 @@ module.exports = {
     getTodos,
     createTodo,
     updateTodo,
-    deleteTodo
+    deleteTodo,
 };
 
