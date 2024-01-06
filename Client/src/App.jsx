@@ -13,7 +13,7 @@ function App() {
   const addItem = async (e) => {
     e.preventDefault();
     try{
-      const res = await axios.post('http://localhost:8000/api/todo', {description: itemText})
+      const res = await axios.post('https://todo-list-djhl.onrender.com/api/todo', {description: itemText})
       setListItems(prev => [...prev, res.data]);
       setItemText('');
     }catch(err){
@@ -38,7 +38,7 @@ function App() {
   // Delete item when click on delete
   const deleteItem = async (id) => {
     try{
-      const res = await axios.delete(`http://localhost:8000/api/todo/${id}`)
+      const res = await axios.delete(`https://todo-list-djhl.onrender.com/api/todo/${id}`)
       const newListItems = listItems.filter(item=> item._id !== id);
       setListItems(newListItems);
     }catch(err){
@@ -50,7 +50,7 @@ function App() {
   const updateItem = async (e) => {
     e.preventDefault()
     try{
-      const res = await axios.put(`http://localhost:8000/api/todo/${isUpdating}`, {description: updateItemText})
+      const res = await axios.put(`https://todo-list-djhl.onrender.com/api/todo/${isUpdating}`, {description: updateItemText})
       console.log(res.data)
       const updatedItemIndex = listItems.findIndex(item => item._id === isUpdating);
       const updatedItem = listItems[updatedItemIndex].item = updateItemText;
