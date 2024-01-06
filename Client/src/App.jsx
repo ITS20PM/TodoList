@@ -25,7 +25,7 @@ function App() {
   useEffect(()=>{
     const getItemsList = async () => {
       try{
-        const res = await axios.get('http://localhost:8000/api/todo')
+        const res = await axios.get('https://todo-list-djhl.onrender.com/api/todo')
         setListItems(res.data);
         console.log('render')
       }catch(err){
